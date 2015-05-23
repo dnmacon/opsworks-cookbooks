@@ -1,0 +1,8 @@
+[general]
+state_file = /var/awslogs/state/agent-state
+
+[<%= node[:opsworks][:stack][:name] %> access logs]
+datetime_format = [%Y-%m-%d %H:%M:%S]
+log_group_name = <%= node[:opsworks][:stack][:name].gsub(' ', '_') %>
+file = /srv/www/log_test/current/log/access.log
+log_stream_name = <%= node[:opsworks][:instance][:hostname] %>
